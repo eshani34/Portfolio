@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eshani Ghosh | Software Engineer</title>
+  <meta name="description" content="Portfolio of Eshani Ghosh, Software Engineer specializing in full-stack development, micro frontends, APIs, and cloud-backed applications." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121933;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #eef2ff;
+      --muted: #b8c0e0;
+      --accent: #8b5cf6;
+      --accent-2: #22c55e;
+      --shadow: 0 20px 50px rgba(0,0,0,0.25);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(139,92,246,0.28), transparent 30%),
+        radial-gradient(circle at top right, rgba(34,197,94,0.18), transparent 20%),
+        linear-gradient(180deg, #090d1a 0%, #0d1326 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(9, 13, 26, 0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--text); }
+
+    .hero {
+      padding: 5.5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.92rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 1.06;
+      margin: 0 0 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 62ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.2rem;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #6d28d9);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.1);
+      color: var(--text);
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .hero-card {
+      padding: 1.4rem;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 1rem;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      margin-bottom: 0.2rem;
+    }
+
+    section {
+      padding: 1.5rem 0 2rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      margin: 0 0 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      max-width: 70ch;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      grid-column: span 12;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+    }
+
+    .experience-item + .experience-item {
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .role-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.45rem;
+    }
+
+    .role-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .role-meta {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    li + li { margin-top: 0.35rem; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .chip {
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      height: 100%;
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .project .chips { margin-top: auto; }
+
+    .half { grid-column: span 6; }
+    .third { grid-column: span 4; }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .half, .third { grid-column: span 12; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">Eshani Ghosh</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Software Engineer II · Full-Stack Developer</div>
+          <h1>Building reliable products across frontend, backend, and cloud workflows.</h1>
+          <p class="subtitle">
+            I’m Eshani Ghosh, a software engineer with experience building micro frontend applications,
+            RESTful APIs, cloud-backed workflows, and production-ready features across Angular, C#/.NET,
+            Java, SQL, and AWS.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <a class="btn btn-secondary" href="https://github.com/eshani34" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/eshani-ghosh" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Highlights">
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>4.5+ years</strong>
+              <span>Software engineering experience</span>
+            </div>
+            <div class="stat">
+              <strong>M.S. CS</strong>
+              <span>UNC Charlotte · 4.0 GPA</span>
+            </div>
+            <div class="stat">
+              <strong>Full stack</strong>
+              <span>Angular, .NET, Java, SQL, AWS</span>
+            </div>
+            <div class="stat">
+              <strong>Production focus</strong>
+              <span>CI/CD, debugging, performance tuning</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <p class="section-copy">
+          I enjoy turning complex product requirements into dependable user-facing experiences and maintainable backend systems.
+          My work has included shipping AI-driven features, integrating APIs, troubleshooting production issues, improving SQL performance,
+          and collaborating across engineering, QA, and business stakeholders in Agile environments.
+        </p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="card">
+          <div class="experience-item">
+            <div class="role-top">
+              <div>
+                <div class="role-title">Software Engineer II · LexisNexis (Relx INC)</div>
+                <div class="role-meta">Raleigh, NC, USA</div>
+              </div>
+              <div class="role-meta">May 2023 – Present</div>
+            </div>
+            <ul>
+              <li>Led end-to-end development of an AI-driven feature within a Micro Frontend web application.</li>
+              <li>Built responsive Angular components and integrated backend workflows powered by C#/.NET APIs.</li>
+              <li>Implemented CRUD operations with AWS RDS and processed JSON data from Amazon S3 for UI rendering.</li>
+              <li>Troubleshot production issues using Splunk and AWS CloudWatch across controller and DAO layers.</li>
+              <li>Optimized SQL stored procedures and supported CI/CD automation with Jenkins.</li>
+              <li>Mentored interns and new hires through code reviews, knowledge transfer, and technical support.</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="role-top">
+              <div>
+                <div class="role-title">Application Development Analyst · Accenture</div>
+                <div class="role-meta">Bengaluru, India</div>
+              </div>
+              <div class="role-meta">Apr 2022 – Jun 2022</div>
+            </div>
+            <ul>
+              <li>Developed SQL queries to join tables, identify data discrepancies, and improve data quality checks.</li>
+              <li>Improved query performance using indexes, triggers, and stored procedures.</li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="role-top">
+              <div>
+                <div class="role-title">Systems Engineer · Tata Consultancy Services</div>
+                <div class="role-meta">Kolkata, India</div>
+              </div>
+              <div class="role-meta">Aug 2020 – Feb 2022</div>
+            </div>
+            <ul>
+              <li>Developed Java Spring MVC applications and tested CRUD workflows with Postman and JUnit.</li>
+              <li>Connected applications to backend databases through JDBC and custom SQL queries.</li>
+              <li>Refactored source code with OOP principles and collaborated with QA on integration testing.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Selected Work</h2>
+        <p class="section-copy">A few representative themes from my recent engineering work.</p>
+        <div class="card-grid">
+          <article class="card third project">
+            <h3>AI-Driven Product Feature</h3>
+            <p>Built an end-to-end feature inside a micro frontend architecture, connecting UI workflows with backend services and cloud-hosted data sources.</p>
+            <div class="chips">
+              <span class="chip">Angular</span>
+              <span class="chip">C#/.NET</span>
+              <span class="chip">AWS</span>
+            </div>
+          </article>
+
+          <article class="card third project">
+            <h3>Cloud-Backed Data Rendering</h3>
+            <p>Integrated application workflows with AWS RDS and Amazon S3, processing JSON payloads to power dynamic frontend rendering.</p>
+            <div class="chips">
+              <span class="chip">AWS RDS</span>
+              <span class="chip">Amazon S3</span>
+              <span class="chip">REST APIs</span>
+            </div>
+          </article>
+
+          <article class="card third project">
+            <h3>Production Reliability & Delivery</h3>
+            <p>Investigated production issues with observability tooling, tuned SQL performance, and supported automated build and deployment pipelines.</p>
+            <div class="chips">
+              <span class="chip">Splunk</span>
+              <span class="chip">Jenkins</span>
+              <span class="chip">SQL</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="card-grid">
+          <div class="card half">
+            <h3>Languages & Frameworks</h3>
+            <div class="chips">
+              <span class="chip">Java</span>
+              <span class="chip">C#</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">SQL</span>
+              <span class="chip">Angular</span>
+              <span class="chip">.NET</span>
+              <span class="chip">Spring MVC</span>
+            </div>
+          </div>
+          <div class="card half">
+            <h3>Cloud, Tools & Practices</h3>
+            <div class="chips">
+              <span class="chip">AWS</span>
+              <span class="chip">Jenkins</span>
+              <span class="chip">Git</span>
+              <span class="chip">Splunk</span>
+              <span class="chip">CloudWatch</span>
+              <span class="chip">Postman</span>
+              <span class="chip">Confluence</span>
+              <span class="chip">JIRA</span>
+              <span class="chip">Agile</span>
+              <span class="chip">CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="card-grid">
+          <div class="card half">
+            <div class="role-title">University of North Carolina at Charlotte</div>
+            <div class="role-meta">Master of Science in Computer Science · Aug 2022 – Dec 2023</div>
+            <p>GPA: 4.00 / 4.00 · Charlotte, NC, USA</p>
+          </div>
+          <div class="card half">
+            <div class="role-title">Maulana Abul Kalam Azad University of Technology</div>
+            <div class="role-meta">Bachelor of Technology in Information Technology · Aug 2016 – Jul 2020</div>
+            <p>GPA: 9.15 / 10.00 · Kolkata, West Bengal, India</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-copy">I’m open to software engineering opportunities and interesting product-building conversations.</p>
+        <div class="contact-list">
+          <a class="contact-pill" href="mailto:ghosh.eshani34@gmail.com">ghosh.eshani34@gmail.com</a>
+          <a class="contact-pill" href="https://github.com/eshani34" target="_blank" rel="noreferrer">github.com/eshani34</a>
+          <a class="contact-pill" href="https://www.linkedin.com/in/eshani-ghosh" target="_blank" rel="noreferrer">linkedin.com/in/eshani-ghosh</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Eshani Ghosh. Built for GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
